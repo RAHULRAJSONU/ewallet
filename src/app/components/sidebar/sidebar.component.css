@@ -1,0 +1,8 @@
+.capsul {
+    padding: 1rem;
+    margin: .3rem;
+    display: block;
+    border: aquamarine;
+    background: #e9ecef;
+    border-radius: 8px;
+}

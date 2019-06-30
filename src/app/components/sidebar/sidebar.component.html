@@ -1,0 +1,11 @@
+<div class="sidebar-sticky">
+  <ul class="nav flex-column">
+    <li class="nav-item capsul" *ngFor="let sconfig of sidebarConfig.config">
+      <a class="nav-link active" [href]="sconfig.link">
+        <fa [name]="sconfig.icon"></fa>
+        <span data-feather="home"></span>
+        {{sconfig.tabname}} <span class="sr-only">(current)</span>
+      </a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,71 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Dashboard</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group mr-2">
+      <app-ledger-entry></app-ledger-entry>
+    </div>
+    <!-- <div class="btn-group mr-2">
+      <button class="ewallet-btn-default" type="button" mdbBtn color="olivedrab" rounded="true" data-toggle="modal" data-target="#basicExample"
+        (click)="frame.show()" mdbWavesEffect>Launch Modal</button>
+    </div> -->
+  </div>
+</div>
+<!-- Info tile start -->
+<div class="row">
+  <div class="col-md-4">
+    <app-infobox icon="money" boxTitle="Current Balance" [boxVal]="(account$ | async)?.balance" bottomTitle=""
+      bottomVal="" boxColor="bg-aqua">
+    </app-infobox>
+  </div>
+  <div class="col-md-4">
+    <app-infobox icon="money" boxTitle="Total Income" [boxVal]="totalIncomeEmmiter$ | async" bottomTitle="" bottomVal=""
+      boxColor="bg-green">
+    </app-infobox>
+  </div>
+  <div class="col-md-4">
+    <app-infobox icon="shopping-cart" boxTitle="Total Expense" [boxVal]="totalExpenseEmmiter$ | async" bottomTitle=""
+      bottomVal="" boxColor="bg-red">
+    </app-infobox>
+  </div>
+</div>
+<!-- info tile end -->
+
+<!-- cash flow start -->
+<div class="row">
+  <div class="col-md-6">
+    <app-box boxTitle="Cash Flow">
+      <app-linechart [expenseDataSet]="groupedExpense$ | async" [incomeDataSet]="groupedIncome$ | async"></app-linechart>
+    </app-box>
+  </div>
+  <div class="col-md-6">
+    <app-box boxTitle="Cash Flow">
+      <app-pie-chart [expenseDataSet]="groupedExpenseCategory$ | async"></app-pie-chart>
+    </app-box>
+  </div>
+</div>
+<!-- cash flow end -->
+
+<!-- latest transaction start -->
+<div class="row">
+  <div class="col-sm">
+    <app-box boxTitle="Latest Expense">
+      <app-ledger [gridObservable]="latestExpense"></app-ledger>
+    </app-box>
+  </div>
+  <div class="col-sm">
+    <app-box boxTitle="Latest Income">
+      <app-ledger [gridObservable]="latestIncome"></app-ledger>
+    </app-box>
+  </div>
+</div>
+<!-- latest transaction end -->
+
+<!-- Transactions start -->
+<div class="row">
+  <div class="col-sm">
+    <app-box boxTitle="Transactions">
+      <app-ledger [gridObservable]="ledger"></app-ledger>
+    </app-box>
+  </div>
+</div>
+<!-- Transaction End -->

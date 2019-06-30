@@ -1,0 +1,35 @@
+{
+    "appname":"eWallet",
+    "config":[
+        {
+            "tabname":"Dashboard",
+            "icon":"tachometer",
+            "link":"#"
+        },
+        {
+            "tabname":"Ledger",
+            "icon":"table",
+            "link":"#"
+        },
+        {
+            "tabname":"Incomes",
+            "icon":"money",
+            "link":"#"
+        },
+        {
+            "tabname":"Expenses",
+            "icon":"shopping-cart",
+            "link":"#"
+        },
+        {
+            "tabname":"Reports",
+            "icon":"bar-chart",
+            "link":"#"
+        },
+        {
+            "tabname":"Settings",
+            "icon":"cogs",
+            "link":"#"
+        }        
+    ]
+}

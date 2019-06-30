@@ -1,0 +1,74 @@
+<button type="button" class="ewallet-btn-default" mdbBtn rounded="true" data-toggle="modal" data-target="#basicExample"
+  (click)="frame.show()" mdbWavesEffect>
+  <fa name="plus"></fa> Add Transaction
+</button>
+
+<div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true" (open)="onModalOpen($event)" (close)="onModalClose($event)">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form [formGroup]="newLedgerEntryForm">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">New Ledger Entry</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body mx-3">
+          <div class="md-form mb-5">
+            <span>Select Category</span>
+            <div class="row">
+              <div class="col-md-12 mx-auto">
+                <select name="category" class="browser-default custom-select" formControlName="category"
+                  (change)="onDropdownSelect($event.target.value,'selectedCategory')">
+                  <option selected *ngFor="let cat of categoryList" [value]="cat.name">
+                    {{cat.name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="md-form mb-5">
+            <span>Select Transaction Type</span>
+            <div class="row">
+              <div class="col-md-12 mx-auto">
+                <select name="transType" class="browser-default custom-select" formControlName="transType"
+                  (change)="onDropdownSelect($event.target.value,'selectedTransType')">
+                  <option selected *ngFor="let tranType of transTypeList" [value]="tranType.name">
+                    {{tranType.name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="md-form mb-5">
+            <span>Select Payment Mode</span>
+            <div class="row">
+              <div class="col-md-12 mx-auto">
+                <select name="payMode" class="browser-default custom-select" formControlName="payMode"
+                  (change)="onDropdownSelect($event.target.value,'selectedPayMode')">
+                  <option selected *ngFor="let pMode of payModeList" [value]="pMode.name">
+                    {{pMode.name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="md-form mb-5">
+            <span>Description</span>
+            <input type="text" id="defaultForm" formControlName="description" class="form-control validate"
+              mdbInput>            
+          </div>
+          <div class="md-form mb-4">
+            <span>amount</span>
+            <input type="text" id="defaultForm" formControlName="amount" class="form-control validate" mdbInput
+              positiveNumber>            
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button mdbBtn color="default" [disabled]="!newLedgerEntryForm.valid" type="submit" (click)="onLedgerEntrySave()" class="waves-light" mdbWavesEffect>Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

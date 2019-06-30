@@ -1,0 +1,17 @@
+<div class="info-box">
+  <a href="#"><span [ngClass]="iconBoxColor">
+      <fa [name]="icon"></fa>
+    </span></a>
+  <div class="info-box-content">
+    <span class="info-box-text">{{boxTitle}}</span>
+    <span class="info-box-number">₹{{boxVal}}</span>
+    <div class="progress-group" title="Open Invoices: ₹0.00<br>Overdue Invoices: ₹0.00" data-toggle="tooltip"
+      data-html="true">
+      <div class="progress sm">
+        <div class="progress-bar progress-bar-aqua" style="width: 100%"></div>
+      </div>
+      <span class="progress-text">{{bottomTitle}}</span>
+      <span class="progress-number">₹{{bottomVal}}</span>
+    </div>
+  </div>
+</div>

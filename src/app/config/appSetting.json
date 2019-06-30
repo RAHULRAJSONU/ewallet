@@ -1,0 +1,13 @@
+{
+   "name":"eWallet",
+   "payMode": [
+       {"id":0,"name":"cash"},
+       {"id":1,"name":"upi"},
+       {"id":2,"name":"bank"}
+    ],
+    "transType": [
+        {"id":0,"name":"income"},
+        {"id":1,"name":"expense"},
+        {"id":2,"name":"loan"}
+    ]
+}
