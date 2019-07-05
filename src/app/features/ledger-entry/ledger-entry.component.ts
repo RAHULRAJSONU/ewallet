@@ -1,11 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ViewChildren } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { FirebaseService } from 'src/app/service/firebase.service';
 import { Category } from 'src/app/domain/Category';
 import { ConfigService } from 'src/app/service/config.service';
 import { Ledger } from 'src/app/domain/Ledger';
-import * as uuid from 'uuid';
 import { Subscription, interval } from 'rxjs';
+import { ModalDirective } from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-ledger-entry',
@@ -23,6 +23,7 @@ export class LedgerEntryComponent implements OnInit, OnDestroy {
   categoryList: Category[] = [];
   payModeList: any = [];
   transTypeList: any = [];
+  @ViewChild('ledgerEntry',{static:false}) public ledgerEntryModal: ModalDirective;
 
   constructor(private firebaseService: FirebaseService, private configService: ConfigService) {
     this._categorySubscription = this.firebaseService.categories.subscribe(cat => this.categoryList = cat);
@@ -49,7 +50,9 @@ export class LedgerEntryComponent implements OnInit, OnDestroy {
 
   onLedgerEntrySave() {
     var ledgerEntry = this.prepareLedgerEntryRequest(this.newLedgerEntryForm.getRawValue())
-    this.firebaseService.createLedger(ledgerEntry);
+    this.firebaseService.createLedger(ledgerEntry,(res)=>{
+      this.ledgerEntryModal.hide();
+    });
   }
 
   persistBulkData(){
@@ -63,7 +66,9 @@ export class LedgerEntryComponent implements OnInit, OnDestroy {
       request.description = "Some discription about transaction";  
       request.amount = Math.floor(Math.random()*randomAmount[Math.floor(Math.random()*(randomAmount.length-1))]);
       // console.log('request__',request)
-      this.firebaseService.createLedger(request);
+      this.firebaseService.createLedger(request,(res)=>{
+        this.ledgerEntryModal.hide();
+      });
     },3000)
   }
 

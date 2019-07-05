@@ -17,15 +17,13 @@ export class LedgerComponent implements OnInit {
     {key:'payMode',display:'PAY-MODE'},
     {key:'transType',display:'TRANS-TYPE'},    
     {key:'account',display:'ACCOUNT'},
-    {key:'timestamp',display:'TIMESTAMP'},
+    {key:'date',display:'DATE'},
     {key:'amount',display:'AMOUNT'},
   ];
   constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {
-    this.gridObservable.subscribe(coll=>{
-      // console.log('griddata__',coll)
-    })
+    
   }
 
 }

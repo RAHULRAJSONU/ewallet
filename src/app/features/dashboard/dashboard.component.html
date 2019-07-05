@@ -33,12 +33,12 @@
 <!-- cash flow start -->
 <div class="row">
   <div class="col-md-6">
-    <app-box boxTitle="Cash Flow">
+    <app-box boxTitle="Expense/Income By Month">
       <app-linechart [expenseDataSet]="groupedExpense$ | async" [incomeDataSet]="groupedIncome$ | async"></app-linechart>
     </app-box>
   </div>
   <div class="col-md-6">
-    <app-box boxTitle="Cash Flow">
+    <app-box boxTitle="Expense By Category Per Month">
       <app-pie-chart [expenseDataSet]="groupedExpenseCategory$ | async"></app-pie-chart>
     </app-box>
   </div>

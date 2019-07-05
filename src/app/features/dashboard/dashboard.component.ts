@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/service/firebase.service';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Ledger } from 'src/app/domain/Ledger';
+import { AuthService } from 'src/app/core/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +21,7 @@ export class DashboardComponent implements OnInit {
   groupedIncome$ = new BehaviorSubject<any>({});
   groupedExpenseCategory$ = new BehaviorSubject<any>({});
 
-  constructor(private firebaseService: FirebaseService) { 
+  constructor(private firebaseService: FirebaseService, private auth: AuthService) { 
     this.latestExpense = this.firebaseService.getLatestExpense();
     this.latestIncome = this.firebaseService.getLatestIncome();
     this.ledger = this.firebaseService.ledgers;
@@ -30,6 +31,7 @@ export class DashboardComponent implements OnInit {
     this.firebaseService.groupedExpense.subscribe(ge=>this.groupedExpense$.next(ge));
     this.firebaseService.groupedIncome.subscribe(gi=>this.groupedIncome$.next(gi));
     this.firebaseService.groupedCategory.subscribe(gc=>this.groupedExpenseCategory$.next(gc));
+    // this.auth.emailLogin('rohitraj0504@gmail.com','2@rohitraj').then(()=>alert('logged-in successfully!'))
   }
 
   ngOnInit() {

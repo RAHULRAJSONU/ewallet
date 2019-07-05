@@ -7,5 +7,6 @@ export class Ledger{
     payMode: string;
     description: string;
     amount: number;
-    timestamp: string;
+    date: Date;
+    timestamp: number;
 }

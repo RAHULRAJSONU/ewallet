@@ -24,13 +24,13 @@ export class LinechartComponent implements OnChanges {
 
   public chartColors: Array<any> = [
     {
-      backgroundColor: 'rgba(66, 244, 161, .2)',
-      borderColor: 'rgba(2, 249, 134, .7)',
+      backgroundColor: 'rgba(239, 150, 112, .2)',
+      borderColor: 'rgba(239, 73, 2, .7)',
       borderWidth: 2,
     },
     {
-      backgroundColor: 'rgba(239, 150, 112, .2)',
-      borderColor: 'rgba(239, 73, 2, .7)',
+      backgroundColor: 'rgba(66, 244, 161, .2)',
+      borderColor: 'rgba(2, 249, 134, .7)',
       borderWidth: 2,
     },
     {
@@ -53,8 +53,8 @@ export class LinechartComponent implements OnChanges {
     var iVal = Object.values(this.incomeDataSet)
     var keySet = eVal.length > iVal.length ? this.expenseDataSet : this.incomeDataSet
     if(eVal.length > 0){
-      this.chartDatasets.push({ "data": eVal, "label": 'Total Expense Per Month'});
-      this.chartDatasets.push({ "data": iVal, "label": 'Total Income Per Month'})
+      this.chartDatasets.push({ data: eVal, "label": 'Total Expense Per Month'});
+      this.chartDatasets.push({ data: iVal, "label": 'Total Income Per Month'})
       this.chartLabels = Object.keys(keySet);
     }
   }
