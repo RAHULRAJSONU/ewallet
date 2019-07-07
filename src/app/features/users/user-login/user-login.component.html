@@ -1,28 +1,52 @@
-<div class="row">
-  <div class="form-centre">
-    <app-box boxTitle="Login Form">
-    <form [formGroup]="userForm" class="text-center border border-light p-5" (ngSubmit)="login()">
+<div class = "login-form-wrapper">
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email2" class="form-control mb-4 input" formControlName="email" required
-        autocomplete="new-password">
-    
-      <div *ngIf="formErrors.email" class="help is-danger">
-        {{ formErrors.email }}
+  <div class="row">
+    <div class="form-centre">
+      <app-box boxTitle="Login">
+      <form [formGroup]="userForm" class="text-center border border-light p-5" (ngSubmit)="login()">
+
+        <!-- <label for="email">Email</label> 
+        <input type="email" id="email" name="email2" class="form-control mb-4 input" formControlName="email" required
+          autocomplete="new-password">   -->
+
+        <label for="email">Email</label> 
+        <div class="input-container">
+            <i class="fa fa-envelope icon"></i>
+            <input type="email" id="email" name="email2" class="input-field" formControlName="email" required
+              autocomplete="new-password"> 
+          </div>
+            
+      
+        <div *ngIf="formErrors.email" class="help is-danger">
+          {{ formErrors.email }}
+        </div>
+      
+        <!-- <label for="password">Password</label>
+        <input type="password" id="password" name="password2" class="form-control mb-4 input" formControlName="password" required
+          autocomplete="new-password"> -->
+
+        <label for="password">Password</label>
+        <div class="input-container">
+        <i class="fa fa-key icon"></i>
+        <input type="password" id="password" name="password2" class="input-field" formControlName="password" required
+          autocomplete="new-password">
+        </div>
+      
+        <div *ngIf="formErrors.password" class="help is-danger">
+          {{ formErrors.password }}
+        </div>
+      
+        <button type="submit" class="button my-4 btn btn-success" [disabled]="!userForm.valid">Submit</button>
+
+      </form>
+    </app-box>
+    </div>
+  </div>
+  <div>
+    <div class="row">
+      <div style="min-height:400px;max-height:500px" class="col-md-12">
+        <span style="display:none; font-size: 1000px">DO NOT DISPLAY</span>
       </div>
-    
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password2" class="form-control mb-4 input" formControlName="password" required
-        autocomplete="new-password">
-    
-      <div *ngIf="formErrors.password" class="help is-danger">
-        {{ formErrors.password }}
-      </div>
-    
-      <button type="submit" class="button my-4 btn btn-success" [disabled]="!userForm.valid">Submit</button>
-    
-    </form>
-  </app-box>
+    </div>
   </div>
 </div>
-

@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig : {
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    projectId: "",
+    apiKey: "AIzaSyATMz-Tj5IzmXAYPWgMi2T_6wQk-uNnt7k",
+    authDomain: "ewalletassistant.firebaseapp.com",
+    databaseURL: "https://ewalletassistant.firebaseio.com",
+    projectId: "ewalletassistant",
     storageBucket: "",
-    messagingSenderId: "",
-    appId: ""
+    messagingSenderId: "1072331576947",
+    appId: "1:1072331576947:web:1a7c4416a1b4242c"
   }
 };
 

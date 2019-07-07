@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './components/layout/layout.component';
@@ -21,7 +21,7 @@ import { DatagridComponent } from './components/datagrid/datagrid.component';
 import { BoxComponent } from './components/box/box.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { LinechartComponent } from './components/linechart/linechart.component';
-import { MDBBootstrapModule } from 'angular-bootstrap-md'
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigService } from './service/config.service';
 import { LedgerEntryComponent } from './features/ledger-entry/ledger-entry.component';
@@ -52,8 +52,7 @@ import { FormsModule } from '@angular/forms';
     PositiveNumberDirective,
     PieChartComponent,
     UserFormComponent,
-    UserLoginComponent,
-    
+    UserLoginComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),    
@@ -68,7 +67,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
   ],
   providers: [FirebaseService,AuthService, ConfigService,NotifyService],
   bootstrap: [AppComponent]

@@ -3,3 +3,9 @@
     background: olivedrab !important; 
     color: whitesmoke !important;
 }
+
+
+.is-danger {
+    color : red;
+    font-size: 13 px;
+}
