@@ -29,7 +29,8 @@ export class FirebaseService implements OnInit{
     groupedExpense = new BehaviorSubject<any>({});
     groupedCategory = new BehaviorSubject<any>({});
     groupedIncome = new BehaviorSubject<any>({});
-    userId = 'HqaAA4otqYdSBKpuJB9sqlHVlfW2';
+    // userId = 'HqaAA4otqYdSBKpuJB9sqlHVlfW2';
+    userId = 'ABOoq5CFDnZn1iJBLVEzHblt3Ow1';
     nowdate = new Date();
     monthStartDay:any=new Date(this.nowdate.getFullYear(), this.nowdate.getMonth(), 1).getTime();
     monthEndDay:any = new Date(this.nowdate.getFullYear(), this.nowdate.getMonth() + 1, 1).getTime();
